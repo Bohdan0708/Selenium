@@ -7,3 +7,5 @@ C:\Users\broik\source\repos\WebDriverDemo\obj\Debug\WebDriverDemo.csprojAssembly
 C:\Users\broik\source\repos\WebDriverDemo\obj\Debug\WebDriverDemo.csproj.CopyComplete
 C:\Users\broik\source\repos\WebDriverDemo\obj\Debug\WebDriverDemo.exe
 C:\Users\broik\source\repos\WebDriverDemo\obj\Debug\WebDriverDemo.pdb
+C:\Users\broik\source\repos\WebDriverDemo\bin\Debug\WebDriver.Support.dll
+C:\Users\broik\source\repos\WebDriverDemo\bin\Debug\WebDriver.Support.xml

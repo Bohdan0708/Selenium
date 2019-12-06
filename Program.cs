@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace WebDriverDemo
 {
@@ -32,9 +33,11 @@ namespace WebDriverDemo
             var loginButton = driver.FindElement(By.XPath("/html/body/div[1]/section/div/div/div[3]/form/div/div/input"));
             loginButton.Click();
 
-            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
-            
-            var userBoard = driver.FindElement(By.LinkText("/b/8pT1Ghpp/171"));
+
+            WebDriverWait waitForElement = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[contains(text(),'171')]")));
+
+            var userBoard = driver.FindElement(By.XPath("//div[contains(text(),'171')]"));
             userBoard.Click();
 
             var userCard = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[1]/div[2]/div[4]/div/div[2]/div/div/div/div/div[2]/div/div/div[1]/ul/li[1]/a/span[1]"));
@@ -45,7 +48,13 @@ namespace WebDriverDemo
             userCardName.Clear();
             userCardName.SendKeys("Change name test");
 
+            //driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
+            //WebDriverWait waitForElement = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            //waitForElement.Until(ExpectedConditions.ElementIsVisible(By.Id("header")));
 
+
+            var menubutton = driver.FindElement(By.XPath("//*[@id=\"header\"]/div[2]/button[3]"));
+            menubutton.Click();
 
 
         }
