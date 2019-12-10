@@ -33,13 +33,35 @@ namespace WebDriverDemo
             var loginButton = driver.FindElement(By.XPath("/html/body/div[1]/section/div/div/div[3]/form/div/div/input"));
             loginButton.Click();
 
+            WebDriverWait waitForElementq = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            waitForElementq.Until(ExpectedConditions.ElementIsVisible(By.Id("header")));
 
-            WebDriverWait waitForElement = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-            waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[contains(text(),'171')]")));
-
-            var userBoard = driver.FindElement(By.XPath("//div[contains(text(),'171')]"));
+            var userBoard = driver.FindElement(By.XPath("//a/div/div/div"));
             userBoard.Click();
 
+            //driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
+            WebDriverWait waitForElement = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            waitForElement.Until(ExpectedConditions.ElementIsVisible(By.Id("header")));
+                      
+            //var menubutton = driver.FindElement(By.XPath("//*[@id=\"header\"]/div[2]/button[3]"));
+            //menubutton.Click();
+
+            //driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
+
+            
+
+            //Done
+            //var logoutButton = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[3]/div/div[3]/nav/ul/li[8]/button/span"));
+            //logoutButton.Click();
+
+
+
+
+
+            //WebDriverWait waitForElement = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+            //waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[contains(text(),'171')]")));
+
+            
             var userCard = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[1]/div[2]/div[4]/div/div[2]/div/div/div/div/div[2]/div/div/div[1]/ul/li[1]/a/span[1]"));
             userCard.Click();
 
@@ -47,16 +69,6 @@ namespace WebDriverDemo
             userCardName.Click();
             userCardName.Clear();
             userCardName.SendKeys("Change name test");
-
-            //driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
-            //WebDriverWait waitForElement = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-            //waitForElement.Until(ExpectedConditions.ElementIsVisible(By.Id("header")));
-
-
-            var menubutton = driver.FindElement(By.XPath("//*[@id=\"header\"]/div[2]/button[3]"));
-            menubutton.Click();
-
-
         }
     }
 }
